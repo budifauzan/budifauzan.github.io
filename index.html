@@ -1,61 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>ARVR Kelompok1</title>
-    <meta name="description" content="ARVR Kelompok1">
-    <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
-    <script src="https://unpkg.com/aframe-event-set-component@5/dist/aframe-event-set-component.min.js"></script>
-    <script src="https://unpkg.com/aframe-layout-component@5.3.0/dist/aframe-layout-component.min.js"></script>
-    <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
-    <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
-  </head>
-  <body>
-    <a-scene>
-      <a-assets>
-        <img id="pusat1" crossorigin="anonymous" src="img/pusat1.jpg">
-        <img id="bianglala-thumb" crossorigin="anonymous" src="img/thumb-bianglala.jpg">
-        <img id="airmancurBarat-thumb" crossorigin="anonymous" src="img/thumb-airmancurBarat.jpg">
-        <img id="pusat2-thumb" crossorigin="anonymous" src="img/thumb-pusat2.jpg">
-        <audio id="bianglala" crossorigin="anonymous" src="img/bianglala.jpg"></audio>
-        <img id="airmancurBarat" crossorigin="anonymous" src="img/airmancur_barat.jpg">
-        <img id="pusat2" crossorigin="anonymous" src="img/pusat2.jpg">
+<head>
+  <meta charset="utf-8">
+  <title>Bunderan Tengah</title>
+  <meta name="description" content="ARVR Kelompok1">
+  <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+  <script src="https://unpkg.com/aframe-event-set-component@5/dist/aframe-event-set-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-layout-component@5.3.0/dist/aframe-layout-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
+  <script src="aframe-href-component.js"></script>
+</head>
+<body>
+  <a-scene canvas="" keyboard-shortcuts="" vr-mode-ui="">
+    <a-entity position="0 1.8 4">
+      <a-camera id="camera" look-controls="" wasd-controls-enabled="false" camera="active:true" rotation="-1.3750987083139854 -3.0939720937064483 0" position="0 0 0">
+        <a-ring radius-outer="0.30" radius-inner="0.20" position="0 0 -3" material="color: cyan; shader: flat" cursor="maxDistance: 30; fuse: true" geometry="primitive:ring;radiusOuter:0.30;radiusInner:0.20" raycaster="" scale="0.4628376812078244 0.4628376812078244 0.4628376812078244">
+          <a-animation begin="click" easing="ease-in" attribute="scale" fill="backwards" from="0.1 0.1 0.1" to="1 1 1" dur="150"></a-animation>
+          <a-animation begin="fusing" easing="ease-in" attribute="scale" fill="forwards" from="1 1 1" to="0.1 0.1 0.1" dur="1500"></a-animation>
+        </a-ring>
+      </a-camera>
+    </a-entity>
+    <a-sky src="img/bunderan_tengah.jpg" rotation="0 0 0"></a-sky>
 
-        <!-- Image link template to be reused. -->
-        <script id="link" type="text/html">
-          <a-entity class="link"
-            geometry="primitive: plane; height: 1; width: 1"
-            material="shader: flat; src: ${thumb}"
-            event-set__mouseenter="scale: 1.2 1.2 1"
-            event-set__mouseleave="scale: 1 1 1"
-            event-set__click="_target: #image-360; _delay: 300; material.src: ${src}"
-            proxy-event="event: click; to: #image-360; as: fade"
-            sound="on: click; src: #click-sound"></a-entity>
-        </script>
-      </a-assets>
+    <a-entity geometry="primitive: box; height:2; width:5; depth:0" material="color:red; side: double; opacity:1;" position="-21 1.5 2.5" rotation="0 90 0"></a-entity>
+    <a-text font="kelsonsans" value="Bianglala" width="20" position="-20 1.5 2.5" rotation="0 90 0" align="center" href="bianglala.html"></a-text>
 
-      <!-- 360-degree image. -->
-      <a-sky id="image-360" radius="10" src="#pusat1"
-             animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
-             animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky>
+    <a-entity geometry="primitive: box; height:2; width:10; depth:0" material="color:red; side: double; opacity:1;" position="6 1.5 17" rotation="0 210 0"></a-entity>
+    <a-text font="kelsonsans" value="Bunderan Kanan" width="20" position="5 1.5 15" rotation="0 210 0" align="center" href="bunderanKanan.html"></a-text>
 
-      <!-- Image links. -->
-      <a-entity id="links" layout="type: line; margin: 1.5" position="0 -1 -4">
-        <a-entity template="src: #link" data-src="#bianglala"  data-thumb="#bianglala-thumb"></a-entity>
-        <a-entity template="src: #link" data-src="#airmancurBarat"  data-thumb="#airmancurBarat-thumb"></a-entity>
-        <a-entity template="src: #link" data-src="#pusat2"  data-thumb="#pusat2-thumb"></a-entity>
-      </a-entity>
-
-      <!-- Camera + cursor. -->
-      <a-entity id="camera" camera look-controls>
-        <a-cursor
-          id="cursor"
-          animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
-          animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
-          event-set__mouseenter="_event: mouseenter; color: springgreen"
-          event-set__mouseleave="_event: mouseleave; color: black"
-          raycaster="objects: .link"></a-cursor>
-      </a-entity>
-    </a-scene>
-  </body>
+    <a-entity geometry="primitive: box; height:2; width:8; depth:0" material="color:red; side: double; opacity:1;" position="7.5 1.5 -9" rotation="0 -30 0"></a-entity>
+    <a-text font="kelsonsans" value="Bunderan Kiri" width="20" position="7 1.5 -8" rotation="0 -30 0" align="center" href="bunderanKiri.html"></a-text>
+  </a-scene>
+</body>
 </html>
