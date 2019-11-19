@@ -13,6 +13,11 @@
 </head>
 <body>
   <a-scene canvas="" keyboard-shortcuts="" vr-mode-ui="">
+
+    <a-assets>
+    <img id="tuguTimur" src="img/tugu_timur.jpg"/>
+  </a-assets>
+
     <a-entity position="0 1.8 4">
       <a-camera id="camera" look-controls="" wasd-controls-enabled="false" camera="active:true" rotation="-1.3750987083139854 -3.0939720937064483 0" position="0 0 0">
         <a-ring radius-outer="0.30" radius-inner="0.20" position="0 0 -3" material="color: cyan; shader: flat" cursor="maxDistance: 30; fuse: true" geometry="primitive:ring;radiusOuter:0.30;radiusInner:0.20" raycaster="" scale="0.4628376812078244 0.4628376812078244 0.4628376812078244">
@@ -21,8 +26,7 @@
         </a-ring>
       </a-camera>
     </a-entity>
-    <a-sky src="img/tugu_timur.jpg" rotation="0 0 0"></a-sky>
-    <a-entity geometry="primitive: box; height:2; width:10; depth:0" material="color:red; side: double; opacity:1;" position="-21 1.5 21" rotation="0 140 0"></a-entity>
+    <a-sky src="#tuguTimur box; height:2; width:10; depth:0" material="color:red; side: double; opacity:1;" position="-21 1.5 21" rotation="0 140 0"></a-entity>
     <a-text font="kelsonsans" value="Bunderan Kanan" width="20" position="-20 1.5 20" rotation="0 140 0" align="center" href="bunderanKanan.html"></a-text>
   </a-scene>
 </body>
