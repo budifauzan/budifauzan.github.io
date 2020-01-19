@@ -12,12 +12,7 @@
   <script src="aframe-href-component.js"></script>
 </head>
 <body>
-  <a-scene canvas="" keyboard-shortcuts="" vr-mode-ui="">
-
-    <a-assets>
-    <img id="bunderanKanan" src="img/bunderan_kanan.jpg"/>
-  </a-assets>
-
+<a-scene canvas="" keyboard-shortcuts="" vr-mode-ui="">
     <a-entity position="0 1.8 4">
       <a-camera id="camera" look-controls="" wasd-controls-enabled="false" camera="active:true" rotation="-1.3750987083139854 -3.0939720937064483 0" position="0 0 0">
         <a-ring radius-outer="0.30" radius-inner="0.20" position="0 0 -3" material="color: cyan; shader: flat" cursor="maxDistance: 30; fuse: true" geometry="primitive:ring;radiusOuter:0.30;radiusInner:0.20" raycaster="" scale="0.4628376812078244 0.4628376812078244 0.4628376812078244">
@@ -26,7 +21,7 @@
         </a-ring>
       </a-camera>
     </a-entity>
-    <a-sky src="#bunderanKanan" rotation="0 0 0"></a-sky>
+    <a-sky src="https://cdn.glitch.com/d7743f86-5ed0-4cb5-b749-2d186df7515a%2Fpusat2.jpg?v=1574160660806" rotation="0 0 0"></a-sky>
 
     <a-entity geometry="primitive: box; height:2; width:9; depth:0" material="color:red; side: double; opacity:1;" position="-8 3.0 -7" rotation="0 30 0" href="index.html"></a-entity>
     <a-text font="kelsonsans" value="Bunderan Tengah" width="20" position="-7 3.0 -6" rotation="0 30 0" align="center" href="index.html"></a-text>
