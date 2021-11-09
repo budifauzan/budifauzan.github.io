@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Sisi Kanan Luar</title>
-        <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-        <script src="https://unpkg.com/aframe-event-set-component@5/dist/aframe-event-set-component.min.js"></script>
-        <script src="https://unpkg.com/aframe-layout-component@5.3.0/dist/aframe-layout-component.min.js"></script>
-        <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
-        <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
 
-        <!--Fungsi untuk pindah halaman-->
-        <script>
-            AFRAME.registerComponent('navigate-on-click', {
-                schema: {
-                    url: {default: ''}
-                },
+<head>
+    <title>Sisi Kiri Dalam</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@5/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-layout-component@5.3.0/dist/aframe-layout-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
+    <script
+        src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
 
-                init: function () {
-                    var data = this.data;
-                    var el = this.el;
+    <!-- Fungsi untuk pindah halaman -->
+    <script>
+        AFRAME.registerComponent('navigate-on-click', {
+            schema: {
+                url: { default: '' }
+            },
 
-                    el.addEventListener('click', function () {
-                        window.location.href = data.url;
-                    });
-                }
-            });        
-        </script>
+            init: function () {
+                var data = this.data;
+                var el = this.el;
 
-        <!--Template untuk papan navigasi situs-->
-        <!--Parameter ${url} untuk lokasi file html-->
-        <!--Parameter ${title} untuk judul situs-->
-        <!--Parameter ${width} untuk mengatur panjang papan-->
-        <script id="papan-navigasi" type="text/html">
+                el.addEventListener('click', function () {
+                    window.location.href = data.url;
+                });
+            }
+        });
+    </script>
+
+    <!-- Template untuk papan navigasi situs -->
+    <!-- Parameter ${url} untuk lokasi file html -->
+    <!-- Parameter ${title} untuk judul situs -->
+    <!-- Parameter ${width} untuk mengatur panjang papan -->
+    <script id="papan-navigasi" type="text/html">
 <a-entity class="papan"
           geometry="primitive: box;
                     height: 0.5;
@@ -50,114 +52,96 @@
             </a-entity>
         </script>
 
-        <!--Template untuk papan keterangan benda di situs-->
-        <!--Parameter ${title} untuk nama benda-->
-        <!--Parameter ${width} untuk mengatur panjang papan-->
-        <script id="papan-keterangan" type="text/html">
-<a-entity class="papan"
-          geometry="primitive: box;
-                    height: 0.5;
-                    width: ${width};
-                    depth: 0.1"
-          material="color: #222"
-          event-set__mouseenter="scale: 1.2 1.2 1"
-          event-set__mouseleave="scale: 1 1 1"
-          sound="on: click; src: #click-sound">
-    <a-entity text="value: ${title};
-                    width: 5;
-                    color: #FFF;
-                    align: center"
-              position="0 0 0.1"></a-entity>
-            </a-entity>
+    <!-- Template untuk papan keterangan di situs -->
+    <!-- Parameter ${content} keterangan -->
+    <!-- Parameter ${textwidth} untuk mengatur panjang keterangan -->
+    <!-- Parameter ${width} untuk mengatur panjang papan -->
+    <!-- Parameter ${height} untuk mengatur tinggi papan -->
+    <script id="papan-keterangan" type="text/html">
+        <a-entity
+              geometry="primitive: box;
+                        height: ${height};
+                        width: ${width};
+                        depth: 0.1"
+              material="color: #000;
+                        opacity: 1">
+        <a-entity text="value: ${content};
+                        color: #FFF;
+                        wrapCount: 50;
+                        width: ${textwidth};
+                        align: left"
+                  position="0 0 0.1"></a-entity>
+                </a-entity>
         </script>
-        
-    </head>
-    <body>
-        <a-scene>
-            <a-assets>
-                <img id="background"
-                     src="https://raw.githubusercontent.com/budifauzan/budifauzan.github.io/master/assets/candi-badut-sisi-kiri-dalam.jpg">
 
-                <img id="wood-texture"
-                     src="https://raw.githubusercontent.com/budifauzan/budifauzan.github.io/master/assets/wood-texture.jpg">
+</head>
 
-                <audio id="click-sound" 
-                       src="https://raw.githubusercontent.com/budifauzan/budifauzan.github.io/master/assets/click.ogg"></audio>
-            </a-assets>
+<body>
+    <a-scene>
+        <a-assets>
+            <img id="background"
+                src="https://raw.githubusercontent.com/budifauzan/budifauzan.github.io/master/assets/candi-badut-sisi-kiri-dalam.jpg">
 
-            <!--Camera dan Cursor-->
-            <a-entity camera 
-                      look-controls
-                      wasd-controls
-                      position="0 1.6 0">
-                <a-cursor id="cursor"
-                          animation__click="
+            <img id="wood-texture"
+                src="https://raw.githubusercontent.com/budifauzan/budifauzan.github.io/master/assets/wood-texture.jpg">
+
+            <audio id="click-sound"
+                src="https://raw.githubusercontent.com/budifauzan/budifauzan.github.io/master/assets/click.ogg"></audio>
+        </a-assets>
+
+        <!-- Camera dan Cursor -->
+        <a-entity camera look-controls wasd-controls position="0 1.6 0">
+            <a-cursor id="cursor" animation__click="
                                             property: scale; 
                                             startEvents: click; 
                                             from: 0.1 0.1 0.1; 
-                                            to: 1 1 1; dur: 150"
-                          animation__fusing="
+                                            to: 1 1 1; dur: 150" animation__fusing="
                                              property: fusing; 
                                              startEvents: fusing; 
                                              from: 1 1 1; 
                                              to: 0.1 0.1 0.1; 
-                                             dur: 1500"
-                          event-set__mouseenter="
+                                             dur: 1500" event-set__mouseenter="
                                                  _event: mouseenter; 
-                                                 color: springgreen"
-                          event-set__mouseleave="
+                                                 color: springgreen" event-set__mouseleave="
                                                  _event: mouseleave; 
-                                                 color: black"
-                          raycaster="objects: .papan"></a-cursor>
-            </a-entity>
+                                                 color: black" raycaster="objects: .papan"></a-cursor>
+        </a-entity>
 
-            <!--Background gambar 360-->
-            <a-sky src="#background"></a-sky>
+        <!-- Background gambar 360 -->
+        <a-sky src="#background"></a-sky>
 
-            <!--Papan untuk kembali menuju halaman utama-->
-            <a-entity class="papan"
-                      geometry="primitive: box;
+        <!-- Papan untuk kembali menuju halaman utama -->
+        <a-entity class="papan" geometry="primitive: box;
                                 height: 0.3;
                                 width: 2;
-                                depth: 0.1"
-                      material="color: #222;"
-                      position="0 3.6 -2"
-                      rotation="30 0 0"
-                      event-set__mouseenter="scale: 1.2 1.2 1"
-                      event-set__mouseleave="scale: 1 1 1"
-                      sound="on: click; src: #click-sound"
-                      navigate-on-click="url: http://google.com">
-                <a-entity text="value: Kembali ke menu utama;
+                                depth: 0.1" material="color: #222;" position="0 3.6 -2" rotation="30 0 0"
+            event-set__mouseenter="scale: 1.2 1.2 1" event-set__mouseleave="scale: 1 1 1"
+            sound="on: click; src: #click-sound" navigate-on-click="url: http://google.com">
+            <a-entity text="value: Kembali ke menu utama;
                                 width: 3;
                                 color: #FFF;
-                                align: center"
-                          position="0 0 0.1"></a-entity>
-            </a-entity>
-                  
-            <!--Papan menuju sisi kiri luar-->
-            <a-entity template="src: #papan-navigasi"
-                      data-url="sisi-kiri-luar.html"
-                      data-title="Sisi Kiri Luar"
-                      data-width="1.6"
-                      position="4 2.6 -0.3"
-                      rotation="0 -85 0"></a-entity>
-            
-            <!--Papan menuju sisi belakang-->
-            <a-entity template="src: #papan-navigasi"
-                      data-url="sisi-belakang.html"
-                      data-title="Sisi Belakang"
-                      data-width="1.5"
-                      position="-0.3 2.6 -5"
-                      rotation="0 5 0"></a-entity>
+                                align: center" position="0 0 0.1"></a-entity>
+        </a-entity>
 
-            
-            <!--Papan menuju sisi depan dalam-->
-            <a-entity template="src: #papan-navigasi"
-                      data-url="sisi-depan-dalam.html"
-                      data-title="Sisi Depan Dalam"
-                      data-width="2"
-                      position="0.2 2.6 4"
-                      rotation="0 180 0"></a-entity>
-        </a-scene>
-    </body>
+        <!-- Papan menuju sisi kiri luar -->
+        <a-entity template="src: #papan-navigasi" data-url="sisi-kiri-luar.html" data-title="Sisi Kiri Luar"
+            data-width="1.6" position="4 2.6 -0.3" rotation="0 -85 0"></a-entity>
+
+        <!-- Papan menuju sisi belakang -->
+        <a-entity template="src: #papan-navigasi" data-url="sisi-belakang.html" data-title="Sisi Belakang"
+            data-width="1.5" position="-0.3 2.6 -5" rotation="0 5 0"></a-entity>
+
+
+        <!-- Papan menuju sisi depan dalam -->
+        <a-entity template="src: #papan-navigasi" data-url="sisi-depan-dalam.html" data-title="Sisi Depan Dalam"
+            data-width="2" position="0.2 2.6 4" rotation="0 180 0"></a-entity>
+
+        <!-- Papan keterangan 1 -->
+        <a-entity template="src: #papan-keterangan"
+            data-content="Kaki Candi berukuran panjang 10,76 m, lebar 10,72 m, dan tebal 1,3 m berdiri di permukaan lapik yang lebar. Antara kaki candi dan lapik (jenjang 1) terdapat selasar selebar 1,15 m – 1,5 m. Kaki candi tersebut tanpa hiasan pelipit maupun ornamen. Pipi tangga utara dihiasi ornamen burung berdiri di bunga teratai, demikian pula tangga sisi selatan. Struktur kaki candi tidak lengkap. Kaki candi terdiri dari bingkai bawah dan badan kaki. Bingkai bawah dan atas berpelipit rata, sedangkan bingkai tengah polos."
+            data-height="2" data-width="5" data-textwidth="4.5" position="-4 1 0.3" rotation="0 95 0"></a-entity>
+
+    </a-scene>
+</body>
+
 </html>
