@@ -108,13 +108,13 @@
         </a-entity>
 
         <!-- Background gambar 360 -->
-        <a-sky src="#background"></a-sky>
+        <a-sky src="#background" rotation="0 -90 0"></a-sky>
 
         <!-- Papan untuk kembali menuju halaman utama -->
         <a-entity class="papan" geometry="primitive: box;
                                 height: 0.3;
                                 width: 2;
-                                depth: 0.1" material="color: #222;" position="0 3.6 -2" rotation="30 0 0"
+                                depth: 0.1" material="color: #222;" position="0 4.6 -2" rotation="45 0 0"
             event-set__mouseenter="scale: 1.2 1.2 1" event-set__mouseleave="scale: 1 1 1"
             sound="on: click; src: #click-sound" navigate-on-click="url: http://google.com">
             <a-entity text="value: Kembali ke menu utama;
@@ -125,12 +125,12 @@
 
         <!-- Papan menuju sisi depan dalam -->
         <a-entity template="src: #papan-navigasi" data-url="sisi-depan-dalam.html" data-title="Sisi Depan Dalam"
-            data-width="2" position="-3.5 2.6 -0.1" rotation="0 90 0"></a-entity>
+            data-width="2" position="0.1 2.6 -3.5" rotation="0 0 0"></a-entity>
 
         <!-- Papan keterangan 1 -->
         <a-entity template="src: #papan-keterangan"
             data-content="Badan candi berbentuk bujur sangkar dengan ukuran panjang 7,5 m dan lebar 7,4 m dengan tinggi 3,62 m. Pada sisi barat badan candi terdapat tangga masuk dan pada kanan-kirinya terdapat hiasan kinara. Di ketiga sisi lainnya terdapat relung-relung berisi arca Durga (utara), sedangkan di timur dan selatan relung dalam keadaan kosong. Pada ambang pintu relung-relung ini terdapat hiasan kalamakara dan di kiri-kanan pintu masuk terdapat relung-relung kecil yang kini telah kosong. Dalam bilik utama terdapat lingga-yoni. Di samping relung-relung terdapat bidang yang dihiasi pola bunga."
-            data-height="2" data-width="5" data-textwidth="4.5" position="-3.5 4.5 -0.1" rotation="30 90 0"></a-entity>
+            data-height="2" data-width="5" data-textwidth="4.5" position="0.1 4.5 -3.5" rotation="30 0 0"></a-entity>
 
     </a-scene>
 </body>

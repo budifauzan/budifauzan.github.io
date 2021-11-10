@@ -108,7 +108,7 @@
         </a-entity>
 
         <!-- Background gambar 360 -->
-        <a-sky src="#background"></a-sky>
+        <a-sky src="#background" rotation ="0 -90 0"></a-sky>
 
         <!-- Papan untuk kembali menuju halaman utama -->
         <a-entity class="papan" geometry="primitive: box;
@@ -125,20 +125,20 @@
 
         <!-- Papan menuju sisi depan dalam -->
         <a-entity template="src: #papan-navigasi" data-url="sisi-depan-dalam.html" data-title="Sisi Depan Dalam"
-            data-width="2" position="-1 2.6 -4" rotation="0 10 0"></a-entity>
+            data-width="2" position="4 2.6 -1" rotation="0 -80 0"></a-entity>
 
         <!-- Papan menuju sisi kanan luar -->
         <a-entity template="src: #papan-navigasi" data-url="sisi-kanan-luar.html" data-title="Sisi Kanan Luar"
-            data-width="2" position="4 2.6 0" rotation="0 -90 0"></a-entity>
+            data-width="2" position="0 2.6 4" rotation="0 -180 0"></a-entity>
 
         <!-- Papan menuju sisi belakang -->
         <a-entity template="src: #papan-navigasi" data-url="sisi-belakang.html" data-title="Sisi Belakang"
-            data-width="2" position="-1.2 2.6 5" rotation="0 170 0"></a-entity>
+            data-width="2" position="-4 2.6 -1.2" rotation="0 70 0"></a-entity>
 
         <!-- Papan keterangan 1 -->
         <a-entity template="src: #papan-keterangan"
             data-content="Lapik merupakan alas tempat kaki candi berdiri, bentuknya persegi panjang, dan berukuran panjang 18,9 m dan lebar 14,10 m. Lapik tersebut terdiri atas tiga jenjang masing-masing setebal 30 cm, 40 cm, dan 20 cm, dan kesemuanya tanpa hiasan."
-            data-height="1.5" data-width="7" data-textwidth="6.5" position="-5 2 0" rotation="0 90 0"></a-entity>
+            data-height="1.5" data-width="7" data-textwidth="6.5" position="0 2 -5" rotation="0 0 0"></a-entity>
 
     </a-scene>
 </body>

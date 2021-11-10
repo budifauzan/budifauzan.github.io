@@ -108,7 +108,7 @@
         </a-entity>
 
         <!-- Background gambar 360 -->
-        <a-sky src="#background"></a-sky>
+        <a-sky src="#background" rotation="0 -90 0"></a-sky>
 
         <!-- Papan untuk kembali menuju halaman utama -->
         <a-entity class="papan" geometry="primitive: box;
@@ -125,19 +125,19 @@
 
         <!-- Papan menuju sisi kiri dalam -->
         <a-entity template="src: #papan-navigasi" data-url="sisi-kiri-dalam.html" data-title="Sisi Kiri Dalam"
-            data-width="2" position="-1.5 2.6 -4" rotation="0 30 0"></a-entity>
+            data-width="2" position="4 2.6 -1.5" rotation="0 -60 0"></a-entity>
 
         <!-- Papan menuju sisi depan luar -->
         <a-entity template="src: #papan-navigasi" data-url="sisi-depan-luar.html" data-title="Sisi Depan Luar"
-            data-width="2" position="4 2.6 -0.2" rotation="0 -90 0"></a-entity>
+            data-width="2" position="0.2 2.6 4" rotation="0 -180 0"></a-entity>
 
         <!-- Papan menuju sisi kanan dalam -->
         <a-entity template="src: #papan-navigasi" data-url="sisi-kanan-dalam.html" data-title="Sisi Kanan Dalam"
-            data-width="2" position="-2 2.6 5" rotation="0 160 0"></a-entity>
+            data-width="2" position="-5 2.6 -2" rotation="0 70 0"></a-entity>
 
         <!-- Papan menuju bagian dalam -->
         <a-entity template="src: #papan-navigasi" data-url="bagian-dalam.html" data-title="Bagian Dalam"
-            data-width="1.6" position="-6 5.6 0" rotation="20 90 0"></a-entity>
+            data-width="1.6" position="0 5.6 -6" rotation="20 0 0"></a-entity>
     </a-scene>
 </body>
 
