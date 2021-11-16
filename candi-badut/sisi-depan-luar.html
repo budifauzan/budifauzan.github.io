@@ -37,8 +37,8 @@
                     height: 0.5;
                     width: ${width};
                     depth: 0.1"
-        material="src: #wood-texture;
-                    roughness: 0.9;"
+        material="color: #444;
+                        opacity: 1"
         event-set__mouseenter="scale: 1.2 1.2 1"
         event-set__mouseleave="scale: 1 1 1"
         sound="on: click; src: #click-sound"
@@ -47,7 +47,7 @@
         <a-entity
           text="value: ${title};
                     width: 5;
-                    color: #000;
+                    color: #FFF;
                     align: center"
           position="0 0 0.1"
         ></a-entity>
@@ -152,140 +152,44 @@
       </a-entity>
 
       <!-- Papan menuju kolam -->
-      <!-- <a-entity
+      <a-entity
         template="src: #papan-navigasi"
         data-url="kolam.html"
         data-title="Kolam"
         data-width="0.8"
         position="4 2.6 -3.3"
         rotation="0 -45 0"
-      ></a-entity> -->
-
-      <a-entity
-        class="papan"
-        geometry="primitive: box;
-                    height: 0.5;
-                    width: 0.8;
-                    depth: 0.1"
-        material="src: #wood-texture;
-                    roughness: 0.9;"
-        event-set__mouseenter="scale: 1.2 1.2 1"
-        event-set__mouseleave="scale: 1 1 1"
-        sound="on: click; src: #click-sound"
-        navigate-on-click="url: kolam.html"
-        position="4 2.6 -3.3"
-        rotation="0 -45 0"
-      >
-        <a-entity
-          text="value: Kolam;
-                    width: 5;
-                    color: #000;
-                    align: center"
-          position="0 0 0.1"
-        ></a-entity>
-      </a-entity>
+      ></a-entity>
 
       <!-- Papan menuju sisi kiri luar -->
-      <!-- <a-entity
+      <a-entity
         template="src: #papan-navigasi"
         data-url="sisi-kiri-luar.html"
         data-title="Sisi Kiri Luar"
         data-width="1.5"
         position="4 2.6 0"
         rotation="0 -90 0"
-      ></a-entity> -->
-
-      <a-entity
-        class="papan"
-        geometry="primitive: box;
-                    height: 0.5;
-                    width: 1.5;
-                    depth: 0.1"
-        material="src: #wood-texture;
-                    roughness: 0.9;"
-        event-set__mouseenter="scale: 1.2 1.2 1"
-        event-set__mouseleave="scale: 1 1 1"
-        sound="on: click; src: #click-sound"
-        navigate-on-click="url: sisi-kiri-luar.html"
-        position="4 2.6 0"
-        rotation="0 -90 0"
-      >
-        <a-entity
-          text="value: Sisi Kiri Luar;
-                    width: 5;
-                    color: #000;
-                    align: center"
-          position="0 0 0.1"
-        ></a-entity>
-      </a-entity>
+      ></a-entity>
 
       <!-- Papan menuju sisi kanan luar -->
-      <!-- <a-entity
+      <a-entity
         template="src: #papan-navigasi"
         data-url="sisi-kanan-luar.html"
         data-title="Sisi Kanan Luar"
         data-width="1.8"
         position="-4 2.6 0.3"
         rotation="0 90 0"
-      ></a-entity> -->
-
-      <a-entity
-        class="papan"
-        geometry="primitive: box;
-                    height: 0.5;
-                    width: 1.8;
-                    depth: 0.1"
-        material="src: #wood-texture;
-                    roughness: 0.9;"
-        event-set__mouseenter="scale: 1.2 1.2 1"
-        event-set__mouseleave="scale: 1 1 1"
-        sound="on: click; src: #click-sound"
-        navigate-on-click="url: sisi-kanan-luar.html"
-        position="-4 2.6 0.3"
-        rotation="0 90 0"
-      >
-        <a-entity
-          text="value: Sisi Kanan Luar;
-                    width: 5;
-                    color: #000;
-                    align: center"
-          position="0 0 0.1"
-        ></a-entity>
-      </a-entity>
+      ></a-entity>
 
       <!-- Papan menuju sisi depan dalam -->
-      <!-- <a-entity
+      <a-entity
         template="src: #papan-navigasi"
         data-url="sisi-depan-dalam.html"
         data-title="Sisi Depan Dalam"
         data-width="2"
         position="0 2.6 -4"
         rotation="0 0 0"
-      ></a-entity> -->
-
-      <a-entity
-        class="papan"
-        geometry="primitive: box;
-                    height: 0.5;
-                    width: 2;
-                    depth: 0.1"
-        material="src: #wood-texture;
-                    roughness: 0.9;"
-        event-set__mouseenter="scale: 1.2 1.2 1"
-        event-set__mouseleave="scale: 1 1 1"
-        sound="on: click; src: #click-sound"
-        navigate-on-click="url: sisi-depan-dalam.html"
-        position="0 2.6 -4"
-        rotation="0 0 0"
-      >
-        <a-entity
-          text="value: Sisi Depan Dalam;
-                    width: 5;
-                    color: #000;
-                    align: center"
-          position="0 0 0.1"
-        ></a-entity>
-      </a-entity>
+      ></a-entity>
     </a-scene>
   </body>
 </html>
